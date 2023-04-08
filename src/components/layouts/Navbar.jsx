@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { AiOutlineMenu, AiOutlineShoppingCart } from 'react-icons/ai';
 import { GrTechnology } from 'react-icons/gr';
 import { ImCross } from 'react-icons/im';
 
 import { NavLink } from 'react-router-dom';
+import { CartContext } from '../../App';
 const Navbar = () => {
     const [menuIsOpen, setMenuIsOpen] = useState(false);
+
+    const [cart, setCart] = useContext(CartContext);
+    console.log(cart.length);
+
     return (
         <>
             <nav className="md:px-24 md:py-4 px-2 py-2 flex justify-between items-center shadow-md w-full">
@@ -28,9 +33,10 @@ const Navbar = () => {
                     </NavLink>
 
                     <NavLink to="/cart" aria-label="Cart" title="Cart Items" className={({ isActive }) => (isActive ? 'active' : 'default')}>
-                        <span className="text-3xl">
+                        <div className="text-3xl relative">
                             <AiOutlineShoppingCart />
-                        </span>
+                            <p className="absolute -top-6 -right-3 text-xl bg-cyan-400 p-1 rounded-full">{cart.length}</p>
+                        </div>
                     </NavLink>
 
                     <NavLink aria-level="about" title="About Us" to="/about" className={({ isActive }) => (isActive ? 'active' : 'default')}>
@@ -55,9 +61,10 @@ const Navbar = () => {
                             </NavLink>
 
                             <NavLink to="/cart" aria-label="Cart" title="Cart Items" className={({ isActive }) => (isActive ? 'active' : 'default')}>
-                                <span className="text-3xl">
+                                <div className="text-3xl relative">
                                     <AiOutlineShoppingCart />
-                                </span>
+                                    <p className="absolute -top-6 -right-3 text-xl bg-cyan-400 p-1 rounded-full">{cart.length}</p>
+                                </div>
                             </NavLink>
 
                             <NavLink aria-level="about" title="About Us" to="/about" className={({ isActive }) => (isActive ? 'active' : 'default')}>

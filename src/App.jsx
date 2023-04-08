@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
 import { Outlet, useLoaderData } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/layouts/Navbar';
@@ -10,9 +10,10 @@ export const CartContext = createContext([]);
 
 function App() {
     const [cartArray, products] = useLoaderData();
+    const [cart, setCart] = useState(cartArray);
     return (
         <ProductContext.Provider value={products}>
-            <CartContext.Provider value={cartArray}>
+            <CartContext.Provider value={[cart, setCart]}>
                 <Navbar />
                 <div className="min-h-[calc(100vh-136px)]">
                     <Outlet />

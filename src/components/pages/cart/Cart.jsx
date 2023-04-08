@@ -4,9 +4,9 @@ import { CartContext } from '../../../App';
 import { removeLocalStorageData, removeLocalStorageDataByID } from '../../utilities/localstorage';
 import CartItemDetails from './CartItemDetails';
 const Cart = () => {
-    const loader = useContext(CartContext);
+    const [cart, setCart] = useContext(CartContext);
 
-    const total = loader.reduce((ps, cs) => ps + cs.price, 0);
+    const total = cart.reduce((ps, cs) => ps + cs.price, 0);
     useEffect(() => {}, []);
     const handleRemoveDatabyID = (id) => {
         removeLocalStorageDataByID(id);
@@ -14,7 +14,7 @@ const Cart = () => {
     return (
         <div className="flex flex-col items-center justify-start min-h-screen bg-gray-100 text-gray-900">
             <div>
-                {loader.map((el) => (
+                {cart.map((el) => (
                     <CartItemDetails key={el.id} product={el} handleRemoveDatabyID={handleRemoveDatabyID} />
                 ))}
             </div>
