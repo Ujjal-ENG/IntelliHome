@@ -12,6 +12,7 @@ export const router = createBrowserRouter([
         path: '/',
         element: <App />,
         errorElement: <ErrorPage />,
+        loader: cartItemDataFromLoacalStorage,
         children: [
             {
                 path: '/',
@@ -24,8 +25,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/cart',
-                element: <Cart />,
-                loader: cartItemDataFromLoacalStorage
+                element: <Cart />
             },
             {
                 path: '/about',

@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import React, { useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { CartContext } from '../../../App';
 import { removeLocalStorageData, removeLocalStorageDataByID } from '../../utilities/localstorage';
 import CartItemDetails from './CartItemDetails';
 const Cart = () => {
-    const loader = useLoaderData();
+    const loader = useContext(CartContext);
 
     const total = loader.reduce((ps, cs) => ps + cs.price, 0);
     useEffect(() => {}, []);

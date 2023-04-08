@@ -1,10 +1,10 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { ProductContext } from '../../App';
 import { addToLocalStorage } from '../utilities/localstorage';
 import SingleProducts from './SingleProducts';
 const Shop = () => {
-    const data = useLoaderData();
-
+    // const data = useLoaderData();
+    const data = useContext(ProductContext);
     // handle Cart Item
     const handleCartItem = (id) => {
         addToLocalStorage(id);
