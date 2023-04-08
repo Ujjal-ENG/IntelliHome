@@ -13,6 +13,11 @@ const Cart = () => {
         setCart(filteredData);
         removeLocalStorageDataByID(id);
     };
+
+    const handleRemoveCartItems = () => {
+        removeLocalStorageData();
+        setCart([]);
+    };
     return (
         <div className="flex flex-col items-center justify-start min-h-screen bg-gray-100 text-gray-900">
             <div>
@@ -28,7 +33,7 @@ const Cart = () => {
                 <p className="text-gray-400 text-end">Not including taxes and shipping costs</p>
                 <div>
                     {cart.length ? (
-                        <button className="btn-outlined" onClick={() => removeLocalStorageData()}>
+                        <button className="btn-outlined" onClick={handleRemoveCartItems}>
                             Clear Cart{' '}
                         </button>
                     ) : (
