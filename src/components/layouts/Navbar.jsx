@@ -9,7 +9,6 @@ const Navbar = () => {
     const [menuIsOpen, setMenuIsOpen] = useState(false);
 
     const [cart, setCart] = useContext(CartContext);
-    console.log(cart.length);
 
     return (
         <>

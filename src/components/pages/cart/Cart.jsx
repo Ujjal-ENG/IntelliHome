@@ -20,12 +20,12 @@ const Cart = () => {
             </div>
 
             <div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10">
-                <h2 className="text-xl font-semibold">{loader.length ? 'Review Cart Items' : 'Cart Is EMPTY!!'}</h2>
+                <h2 className="text-xl font-semibold">{cart.length ? 'Review Cart Items' : 'Cart Is EMPTY!!'}</h2>
 
                 <p className="text-gray-900 font-semibold text-end">Total Amount: ${total}</p>
                 <p className="text-gray-400 text-end">Not including taxes and shipping costs</p>
                 <div>
-                    {loader.length ? (
+                    {cart.length ? (
                         <button className="btn-outlined" onClick={() => removeLocalStorageData()}>
                             Clear Cart{' '}
                         </button>
