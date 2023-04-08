@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { addToLocalStorage } from '../utilities/localstorage';
 import SingleProducts from './SingleProducts';
 const Shop = () => {
     const data = useLoaderData();

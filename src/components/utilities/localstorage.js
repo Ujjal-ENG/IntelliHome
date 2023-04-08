@@ -17,6 +17,12 @@ export const addToLocalStorage = id => {
   localStorage.setItem("cart-items",JSON.stringify(carts))
 }
 
+
+export const getDataFromLocalStorage = () => {
+  const getData = localStorage.getItem("cart-items" || {})
+  return JSON.parse(getData)
+}
+
 export const removeLocalStorageData = () => {
   localStorage.clear()
 }

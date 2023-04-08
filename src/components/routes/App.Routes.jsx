@@ -23,7 +23,8 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/cart',
-                element: <Cart />
+                element: <Cart />,
+                loader: async () => fetch('Products.json')
             },
             {
                 path: '/about',
