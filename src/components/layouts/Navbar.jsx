@@ -8,11 +8,12 @@ const Navbar = () => {
             <nav className="px-24 py-8 flex justify-between items-center shadow-md w-full">
                 <div>
                     <NavLink
+                        to="/"
                         className={(isActive) => {
                             return isActive ? 'active' : 'default';
                         }}>
                         <span className="flex items-center text-3xl">
-                            <GrTechnology />
+                            <GrTechnology className="bg-cyan-200 p-2 rounded-full mr-2 text-5xl" />
                             IntelliHome
                         </span>
                     </NavLink>
@@ -20,6 +21,7 @@ const Navbar = () => {
 
                 <div className="flex  items-center gap-6">
                     <NavLink
+                        to="/"
                         className={(isActive) => {
                             return isActive ? 'active' : 'default';
                         }}>
@@ -27,6 +29,7 @@ const Navbar = () => {
                     </NavLink>
 
                     <NavLink
+                        to="/shop"
                         className={(isActive) => {
                             return isActive ? 'active' : 'default';
                         }}>
@@ -34,6 +37,7 @@ const Navbar = () => {
                     </NavLink>
 
                     <NavLink
+                        to="/cart"
                         className={(isActive) => {
                             return isActive ? 'active' : 'default';
                         }}>
@@ -43,6 +47,7 @@ const Navbar = () => {
                     </NavLink>
 
                     <NavLink
+                        to="/about"
                         className={(isActive) => {
                             return isActive ? 'active' : 'default';
                         }}>
