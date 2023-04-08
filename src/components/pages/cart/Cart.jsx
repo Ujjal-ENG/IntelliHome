@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
 import { CartContext } from '../../../App';
 import { removeLocalStorageData, removeLocalStorageDataByID } from '../../utilities/localstorage';
 import CartItemDetails from './CartItemDetails';
@@ -12,11 +13,26 @@ const Cart = () => {
         const filteredData = cart.filter((el) => el.id !== id);
         setCart(filteredData);
         removeLocalStorageDataByID(id);
+        toast.success('Successfully Removed!');
     };
 
     const handleRemoveCartItems = () => {
         removeLocalStorageData();
         setCart([]);
+        toast.error('Successfully Carts items Removed!');
+    };
+    const navigate = useNavigate();
+    const handlePlaceOrder = () => {
+        if (cart.length > 0) {
+            removeLocalStorageData();
+            setCart([]);
+            toast.success('Successfully Order Placed!');
+        } else {
+            toast.success('Carts is Empty Now and You redirecting Shop Page');
+            setTimeout(() => {
+                navigate('/shop');
+            }, 1000);
+        }
     };
     return (
         <div className="flex flex-col items-center justify-start min-h-screen bg-gray-100 text-gray-900">
@@ -42,7 +58,9 @@ const Cart = () => {
                         </Link>
                     )}
 
-                    <button className="btn-primary">Place Order</button>
+                    <button className="btn-primary" onClick={handlePlaceOrder}>
+                        Place Order
+                    </button>
                 </div>
             </div>
         </div>
