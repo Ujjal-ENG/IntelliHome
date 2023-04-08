@@ -10,7 +10,6 @@ export const CartContext = createContext([]);
 
 function App() {
     const [cartArray, products] = useLoaderData();
-    console.log(products);
     return (
         <ProductContext.Provider value={products}>
             <CartContext.Provider value={cartArray}>
