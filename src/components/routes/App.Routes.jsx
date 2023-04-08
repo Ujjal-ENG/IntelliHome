@@ -18,7 +18,8 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/shop',
-                element: <Shop />
+                element: <Shop />,
+                loader: async () => fetch('Products.json')
             },
             {
                 path: '/cart',
