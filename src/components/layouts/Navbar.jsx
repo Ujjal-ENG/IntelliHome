@@ -7,11 +7,7 @@ const Navbar = () => {
         <>
             <nav className="px-24 py-8 flex justify-between items-center shadow-md w-full">
                 <div>
-                    <NavLink
-                        to="/"
-                        className={(isActive) => {
-                            return isActive ? 'active' : 'default';
-                        }}>
+                    <NavLink to="/" aria-level="Title and Icon" title="Title" className={({ isActive }) => (isActive ? 'active' : 'default')}>
                         <span className="flex items-center text-3xl">
                             <GrTechnology className="bg-cyan-200 p-2 rounded-full mr-2 text-5xl" />
                             IntelliHome
@@ -20,37 +16,21 @@ const Navbar = () => {
                 </div>
 
                 <div className="flex  items-center gap-6">
-                    <NavLink
-                        to="/"
-                        className={(isActive) => {
-                            return isActive ? 'active' : 'default';
-                        }}>
+                    <NavLink to="/" aria-label="Home Page" title="Home" className={({ isActive }) => (isActive ? 'active' : 'default')}>
                         <span className="text-3xl">Home</span>
                     </NavLink>
 
-                    <NavLink
-                        to="/shop"
-                        className={(isActive) => {
-                            return isActive ? 'active' : 'default';
-                        }}>
+                    <NavLink to="/shop" aria-level="Product Page" title="Shop Products" className={({ isActive }) => (isActive ? 'active' : 'default')}>
                         <span className="text-3xl">Shop</span>
                     </NavLink>
 
-                    <NavLink
-                        to="/cart"
-                        className={(isActive) => {
-                            return isActive ? 'active' : 'default';
-                        }}>
+                    <NavLink to="/cart" aria-label="Cart" title="Cart Items" className={({ isActive }) => (isActive ? 'active' : 'default')}>
                         <span className="text-3xl">
                             <AiOutlineShoppingCart />
                         </span>
                     </NavLink>
 
-                    <NavLink
-                        to="/about"
-                        className={(isActive) => {
-                            return isActive ? 'active' : 'default';
-                        }}>
+                    <NavLink aria-level="about" title="About Us" to="/about" className={({ isActive }) => (isActive ? 'active' : 'default')}>
                         <span className="text-3xl">About</span>
                     </NavLink>
                 </div>
