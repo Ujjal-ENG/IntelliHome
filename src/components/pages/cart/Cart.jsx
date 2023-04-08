@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../../App';
 import { removeLocalStorageData, removeLocalStorageDataByID } from '../../utilities/localstorage';
@@ -6,9 +6,11 @@ import CartItemDetails from './CartItemDetails';
 const Cart = () => {
     const [cart, setCart] = useContext(CartContext);
 
-    const total = cart.reduce((ps, cs) => ps + cs.price, 0);
-    useEffect(() => {}, []);
+    const total = cart.reduce((ps, cs) => ps + cs.price * cs.quantity, 0);
+
     const handleRemoveDatabyID = (id) => {
+        const filteredData = cart.filter((el) => el.id !== id);
+        setCart(filteredData);
         removeLocalStorageDataByID(id);
     };
     return (

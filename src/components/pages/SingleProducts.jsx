@@ -8,7 +8,7 @@ const SingleProducts = ({ data, handleCartItem }) => {
             <p className="mb-2 text-xl font-bold leading-none sm:text-2xl">{name}</p>
             <p className="text-gray-700 ">Category: {category}</p>
             <p className="text-gray-700 font-bold">Price: {price}$</p>
-            <button onClick={() => handleCartItem(id)} type="button" className="btn-primary w-full block">
+            <button onClick={() => handleCartItem(data)} type="button" className="btn-primary w-full block">
                 Add To Cart
             </button>
         </div>
