@@ -17,6 +17,20 @@ export const addToLocalStorage = id => {
   localStorage.setItem("cart-items",JSON.stringify(carts))
 }
 
+export const removeLocalStorageDataByID = id => {
+  // get previous value from the local storage
+  const storedCart = localStorage.getItem("cart-items")
+
+  const shoppingCart = JSON.parse(storedCart)
+
+  if (shoppingCart) {
+    if (id in shoppingCart) {
+      delete shoppingCart[id]
+      localStorage.setItem("cart-items",JSON.stringify(shoppingCart))
+    }
+  }
+}
+
 
 export const getDataFromLocalStorage = () => {
   const getData = localStorage.getItem("cart-items" || {})

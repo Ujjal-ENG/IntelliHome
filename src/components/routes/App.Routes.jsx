@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../../App';
+import { cartItemDataFromLoacalStorage } from '../loaders/getCartItemsData';
 import About from '../pages/About';
 import ErrorPage from '../pages/ErrorPage';
 import Home from '../pages/Home';
@@ -24,7 +25,7 @@ export const router = createBrowserRouter([
             {
                 path: '/cart',
                 element: <Cart />,
-                loader: async () => fetch('Products.json')
+                loader: cartItemDataFromLoacalStorage
             },
             {
                 path: '/about',
