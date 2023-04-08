@@ -28,7 +28,7 @@ const Cart = () => {
             setCart([]);
             toast.success('Successfully Order Placed!');
         } else {
-            toast.success('Carts is Empty Now and You redirecting Shop Page');
+            toast.error('Carts is Empty Now and You redirecting Shop Page');
             setTimeout(() => {
                 navigate('/shop');
             }, 1000);
